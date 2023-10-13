@@ -1,10 +1,11 @@
 import React from 'react';
+import menuLinksData from './data/menu_links.json';
 
 const Header = () => {
   return (
     <header id="intro">
-      <article class="fullheight">
-        <div class="hgroup">
+      <article className="fullheight">
+        <div className="hgroup">
           <h1>Landon Hotel</h1>
           <h2>West London</h2>
           <p>
@@ -19,38 +20,20 @@ const Header = () => {
       </article>
 
       <nav id="nav">
-        <div class="navbar">
-          <div class="brand">
+        <div className="navbar">
+          <div className="brand">
             <a href="#welcome">
               Landon <span>Hotel</span>
             </a>
           </div>
           <ul>
-            <li>
-              <a class="icon info" href="#hotelinfo">
-                <span>info</span>
-              </a>
-            </li>
-            <li>
-              <a class="icon rooms" href="#rooms">
-                <span>rooms</span>
-              </a>
-            </li>
-            <li>
-              <a class="icon dining" href="#dining">
-                <span>dining</span>
-              </a>
-            </li>
-            <li>
-              <a class="icon events" href="#events">
-                <span>events</span>
-              </a>
-            </li>
-            <li>
-              <a class="icon attractions" href="#attractions">
-                <span>attractions</span>
-              </a>
-            </li>
+            {menuLinksData.map((link) => (
+              <li key={link.href}>
+                <a className={`icon ${link.class}`} href={link.href}>
+                  <span>{link.text}</span>
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </nav>
